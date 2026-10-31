@@ -1,3 +1,5 @@
+# RouteWise-AI
+
 # SmartRoute AI – Autonomous AI FinOps & Intelligent Model Routing Platform
 
 SmartRoute AI is an enterprise-grade AI Operations (AIOps) and FinOps platform designed to dynamically analyze incoming user queries, assess task complexity, enforce privacy and compliance constraints, automatically select the cost-optimal AI model across configurable tiers, optimize context, evaluate output quality, and monitor provider health in real-time.
