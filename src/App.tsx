@@ -1,85 +1,57 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import { ToastProvider } from './context/ToastContext';
-import { Navbar } from './components/common/Navbar';
-import { Footer } from './components/common/Footer';
-import { ProtectedRoute } from './routes/ProtectedRoute';
+import React, { useState } from 'react';
+import { DashboardLayout } from './layouts/DashboardLayout';
+import { OverviewPage } from './pages/OverviewPage';
+import { PlaygroundPage } from './pages/PlaygroundPage';
+import { ModelRoutingPage } from './pages/ModelRoutingPage';
+import { WorkflowsPage } from './pages/WorkflowsPage';
+import { AiAgentsPage } from './pages/AiAgentsPage';
+import { ModelRegistryPage } from './pages/ModelRegistryPage';
+import { AnalyticsPage } from './pages/AnalyticsPage';
+import { CostOptimizationPage } from './pages/CostOptimizationPage';
+import { QualityEvaluationPage } from './pages/QualityEvaluationPage';
+import { SecurityCenterPage } from './pages/SecurityCenterPage';
+import { ApprovalsPage } from './pages/ApprovalsPage';
+import { SettingsPage } from './pages/SettingsPage';
 
-// Pages
-import { LandingPage } from './pages/LandingPage';
-import { EventDiscoveryPage } from './pages/EventDiscoveryPage';
-import { EventDetailPage } from './pages/EventDetailPage';
-import { StudentDashboardPage } from './pages/StudentDashboardPage';
-import { OrganizerDashboardPage } from './pages/OrganizerDashboardPage';
-import { OrganizerEventsPage } from './pages/OrganizerEventsPage';
-import { ParticipantManagementPage } from './pages/ParticipantManagementPage';
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
-import { NotFoundPage } from './pages/NotFoundPage';
+export function App() {
+  const [currentTab, setCurrentTab] = useState<string>('overview');
 
-export const App: React.FC = () => {
+  const renderContent = () => {
+    switch (currentTab) {
+      case 'overview':
+        return <OverviewPage onNavigateToPlayground={() => setCurrentTab('playground')} />;
+      case 'playground':
+        return <PlaygroundPage />;
+      case 'routing':
+        return <ModelRoutingPage />;
+      case 'workflows':
+        return <WorkflowsPage />;
+      case 'agents':
+        return <AiAgentsPage />;
+      case 'registry':
+        return <ModelRegistryPage />;
+      case 'analytics':
+        return <AnalyticsPage />;
+      case 'cost-optimization':
+        return <CostOptimizationPage />;
+      case 'quality':
+        return <QualityEvaluationPage />;
+      case 'security':
+        return <SecurityCenterPage />;
+      case 'approvals':
+        return <ApprovalsPage />;
+      case 'settings':
+        return <SettingsPage />;
+      default:
+        return <OverviewPage onNavigateToPlayground={() => setCurrentTab('playground')} />;
+    }
+  };
+
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <ToastProvider>
-          <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-indigo-500 selection:text-white">
-            <Navbar />
-            <main className="flex-1">
-              <Routes>
-                {/* Public Routes */}
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/events" element={<EventDiscoveryPage />} />
-                <Route path="/events/:id" element={<EventDetailPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-
-                {/* Student Protected Routes */}
-                <Route
-                  path="/student/dashboard"
-                  element={
-                    <ProtectedRoute allowedRoles={['STUDENT']}>
-                      <StudentDashboardPage />
-                    </ProtectedRoute>
-                  }
-                />
-
-                {/* Organizer Protected Routes */}
-                <Route
-                  path="/organizer/dashboard"
-                  element={
-                    <ProtectedRoute allowedRoles={['ORGANIZER']}>
-                      <OrganizerDashboardPage />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/organizer/events"
-                  element={
-                    <ProtectedRoute allowedRoles={['ORGANIZER']}>
-                      <OrganizerEventsPage />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/organizer/events/:id/participants"
-                  element={
-                    <ProtectedRoute allowedRoles={['ORGANIZER']}>
-                      <ParticipantManagementPage />
-                    </ProtectedRoute>
-                  }
-                />
-
-                {/* 404 Fallback */}
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </ToastProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <DashboardLayout currentTab={currentTab} onSelectTab={setCurrentTab}>
+      {renderContent()}
+    </DashboardLayout>
   );
-};
+}
 
 export default App;

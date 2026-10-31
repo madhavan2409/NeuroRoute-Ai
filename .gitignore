@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build artifacts
+dist/
+build/
+out/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# SQLite Database & Storage
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+smartroute.db
+
+# Python & ML cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg-info/
+
+# Testing & Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

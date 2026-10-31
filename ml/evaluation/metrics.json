@@ -1,0 +1,200 @@
+{
+  "complexity": {
+    "accuracy": 0.8462,
+    "precision_macro": 0.8476,
+    "recall_macro": 0.849,
+    "f1_macro": 0.8461,
+    "precision_weighted": 0.85,
+    "recall_weighted": 0.8462,
+    "f1_weighted": 0.8459,
+    "classes": [
+      "advanced",
+      "medium",
+      "simple"
+    ],
+    "confusion_matrix": [
+      [
+        17,
+        1,
+        1
+      ],
+      [
+        2,
+        20,
+        1
+      ],
+      [
+        2,
+        3,
+        18
+      ]
+    ],
+    "test_samples": 65
+  },
+  "task_type": {
+    "accuracy": 0.8462,
+    "precision_macro": 0.8374,
+    "recall_macro": 0.8812,
+    "f1_macro": 0.8276,
+    "precision_weighted": 0.9027,
+    "recall_weighted": 0.8462,
+    "f1_weighted": 0.8525,
+    "classes": [
+      "coding",
+      "creative",
+      "data_analysis",
+      "general",
+      "mathematics",
+      "reasoning",
+      "summarization",
+      "system_architecture"
+    ],
+    "confusion_matrix": [
+      [
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        9,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        1,
+        11,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        2,
+        0,
+        6,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        9
+      ]
+    ],
+    "test_samples": 65
+  },
+  "privacy": {
+    "accuracy": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_macro": 1.0,
+    "precision_weighted": 1.0,
+    "recall_weighted": 1.0,
+    "f1_weighted": 1.0,
+    "classes": [
+      "confidential",
+      "public",
+      "sensitive"
+    ],
+    "confusion_matrix": [
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        53,
+        0
+      ],
+      [
+        0,
+        0,
+        8
+      ]
+    ],
+    "test_samples": 65
+  },
+  "priority": {
+    "accuracy": 0.6769,
+    "precision_macro": 0.6808,
+    "recall_macro": 0.6856,
+    "f1_macro": 0.6777,
+    "precision_weighted": 0.7065,
+    "recall_weighted": 0.6769,
+    "f1_weighted": 0.6855,
+    "classes": [
+      "critical",
+      "high",
+      "normal"
+    ],
+    "confusion_matrix": [
+      [
+        15,
+        2,
+        0
+      ],
+      [
+        3,
+        9,
+        5
+      ],
+      [
+        0,
+        11,
+        20
+      ]
+    ],
+    "test_samples": 65
+  }
+}
